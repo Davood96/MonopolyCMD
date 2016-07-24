@@ -27,4 +27,4 @@ Property.obj: Property.cpp Property.h Player.h
 	cl -c Property.cpp
 
 OtherSpaces.obj: OtherSpaces.cpp Jail.h Player.h
-	cl -c OtherSapces.cpp  
+	cl -c OtherSpaces.cpp  
