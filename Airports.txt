@@ -1,0 +1,4 @@
+St. John's International Airport	94	5	
+Vancouver International Airport	94	15	
+Montreal International Airport	94	25	
+Toronto International Airport	94	35	

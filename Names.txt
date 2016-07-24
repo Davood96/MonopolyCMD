@@ -1,0 +1,18 @@
+GO	1
+Community Chest	2
+Icome Tax	4
+St. John's International Airport	5
+Chance	7
+Jail	10
+Phone Service	12
+Vancouver International Airport	15
+Community Chest	17
+Free Parking	20
+Chance	22
+Montreal International Airport	25
+Internet Service	28
+Go to Jail	30
+Community Chest	33
+Toronto International Airport	35
+Chance	36
+Luxury Tax	38
