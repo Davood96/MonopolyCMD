@@ -4,8 +4,7 @@
 #include "RandomCardImp.h"
 #include "PropertyChildren.h"
 #include "CardTypes.h"
-#define CITIES_LINK "C:\\Users\\You're back!\\C-C++ Projects\\June-19th-2016\\Assets\\Cities.txt"
-
+#include "Names.h"
 
 void Board::shuffleDecks()
 {
@@ -40,7 +39,7 @@ void Board::readCities()
 	elements[20] = new FreeParking();
 	elements[10] = new Jail();
 
-	fp = fopen("C:\\Users\\You're back!\\C-C++ Projects\\June-19th-2016\\Assets\\Cities.txt", "r");
+	fp = fopen(CITIES_LINK, "r");
 
 	if(fp == NULL)
 		exit(1);
@@ -68,7 +67,7 @@ void Board::readCities()
 
 void Board::readAirports()
 {
-	fp = fopen("C:\\Users\\You're back!\\C-C++ Projects\\June-19th-2016\\Assets\\Airports.txt", "r");
+	fp = fopen(AIRPORT_LINK, "r");
 	int i = 0;int index;
 	for(i; i < 4; i++)
 	{
@@ -89,7 +88,7 @@ void Board::readAirports()
 
 void Board::readChance()
 {
-	fp = fopen("C:\\Users\\You're back!\\C-C++ Projects\\June-19th-2016\\Assets\\AdvanceChance.txt", "r");
+	fp = fopen(CHANCE_LINK, "r");
 	if(fp == NULL)
 		exit(1);
 	int i = 0;int index;
@@ -114,7 +113,7 @@ void Board::readChance()
 
 void Board::readCommunityChest()
 {
-	fp = fopen("C:\\Users\\You're back!\\C-C++ Projects\\June-19th-2016\\Assets\\AdvanceCommunityChest.txt", "r");
+	fp = fopen(COMMUNITY_LINK, "r");
 	if(fp == NULL)
 		exit(1);
 	int i = 0;int index;
