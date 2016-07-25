@@ -17,19 +17,15 @@ class City : public Property
 		char format[6];
 		
 	public:
-		City(char* string, char code) : Property(string, code){houses = 0; rent_prices = (float*) malloc(6 * sizeof(float));}
+		City(char* string, char code, float* arr) : Property(string, code)
+		{
+			houses = 0; 
+			rent_prices = arr;
+		}
+
 		City() : Property(){}
 		~City(){printf("Free memory\n");}
 
-		/**
-		*`Return the rent rate
-		* @param index - the order of the rate
-		* @return - the rent rate
-		**/
-		float getPrices(int index)
-		{
-			return rent_prices[index];
-		}
 		
 		/**
 		* Calculates the amount owed by a player when landing

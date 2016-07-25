@@ -53,7 +53,7 @@ class Property : public LandingSpace
 		**/
 		int isOwned()
 		{
-			return owner != NULL
+			return owner != NULL;
 		}
 
 		float getRent()

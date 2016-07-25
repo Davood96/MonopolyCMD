@@ -53,17 +53,18 @@ void Board::readCities()
 	for(i; i < 22; i++)
 	{
 		char* string = (char*) malloc(40*sizeof(char));
-		char c;int j = 0;
+		char c;int j = 0; 
+		float* tmp = (float*) malloc(6 * sizeof(float));
 		while((c = fgetc(fp)) != '\t')
 			string[j++] = c;
 		string[j] = '\0';int code; 
 		fscanf(fp, "%d", &code);
-		City* city = new City(string, (char)code);
-		fscanf(fp, "%d%f%f%f%f%f%f%f\n", &index, city->getPrices(0), city->getPrices(1), city->getPrices(2), 
-					city->getPrices(3), city->getPrices(4), city->getPrices(5), &purchase);
+		fscanf(fp, "%d%f%f%f%f%f%f%f\n", &index, tmp, tmp + 1, tmp + 2, 
+					tmp + 3, tmp + 4, tmp + 5, &purchase);
 
+		City* city = new City(string, (char)code, tmp);
 		city->setPurchasePrice(purchase);
-		city->setRent(*(city->getPrices()));
+		city->setRent(tmp[0]);
 		elements[index] = city; 
 	}
 	fclose(fp);

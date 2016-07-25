@@ -18,7 +18,7 @@ int Property::execute(Player* plyr)
 	printRentInfo();
 	printf("You have this much: %s\n",getFormat(plyr->getCash()));
 
-	if(isOwned() && owner != player)
+	if(isOwned() && owner != plyr)
 		payRent(plyr, plyr->getRoll());
 	else if(owner == NULL)
 		purchase(plyr);
