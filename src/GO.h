@@ -8,11 +8,6 @@ class GO : public LandingSpace
 		GO() : LandingSpace() {}
 		~GO(){}
 
-		void printLanded()
-		{
-			printf("You landed on GO\n");
-		}
-
 		int execute(Player* plyr)
 		{
 			printLanded();

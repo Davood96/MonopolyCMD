@@ -1,3 +1,8 @@
+/**
+* This class provides the full implementation
+* for city spaces 
+*
+**/
 #include <stdlib.h>
 #include <stdio.h>
 #include "Property.h"
@@ -5,7 +10,9 @@
 class City : public Property
 {
 	private:
+		//The number of houses built on a space
 		int houses;
+		//The various rent rates
 		float* rent_prices;
 		char format[6];
 		
@@ -14,16 +21,31 @@ class City : public Property
 		City() : Property(){}
 		~City(){printf("Free memory\n");}
 
-		float* getPrices()
+		/**
+		*`Return the rent rate
+		* @param index - the order of the rate
+		* @return - the rent rate
+		**/
+		float getPrices(int index)
 		{
-			return rent_prices;
+			return rent_prices[index];
 		}
 		
+		/**
+		* Calculates the amount owed by a player when landing
+		* on an airport space
+		* @param rolls - the number rolled by the player
+		* @return - the amount owed
+		*
+		**/
 		float calculateOwed(int rolls)
 		{
 			return getRent();
 		}
 
+		/**
+		* Prints the rates associated with a city space
+		**/
 		void printRentInfo()
 		{
 			printf("Rent Rates\n");
@@ -39,6 +61,10 @@ class City : public Property
 				
 		}
 
+		/**
+		* Updates the rent of the city space
+		* @param owned - the number of city spaces of the same group owned 
+		**/
 		void rentChanges(int owned)
 		{
 			int lands = (int) (getCode() % 10);

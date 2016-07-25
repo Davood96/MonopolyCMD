@@ -1,3 +1,6 @@
+/**
+* This class provides the prototype for the Jail space
+**/
 #include <stdio.h>
 #include "LandingSpace.h"
 

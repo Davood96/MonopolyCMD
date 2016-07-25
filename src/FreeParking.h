@@ -1,6 +1,9 @@
+/**
+* This class provides implementation of Free Parking
+**/
 #include <stdio.h>
 #include "LandingSpace.h"
-
+#define SPACE 20
 class FreeParking : public LandingSpace
 {
 	public:
@@ -8,15 +11,10 @@ class FreeParking : public LandingSpace
 		FreeParking() : LandingSpace() {}
 		~FreeParking(){}
 
-		void printLanded()
-		{
-			printf("You landed on Free Parking\n");
-		}
-
 		int execute(Player* plyr)
 		{
 			printLanded();
-			return 20;
+			return SPACE;
 		}
 
 

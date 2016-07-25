@@ -1,3 +1,7 @@
+/**
+* This file contains the implementation of the following classes:
+* - Board
+**/
 #include <stdio.h>
 #include <stdlib.h>
 #include "Board.h"
@@ -33,10 +37,10 @@ void Board::assignRandomCardPositions()
 
 void Board::readCities()
 {
-	elements[0] = new GO();
+	elements[0] = new GO("GO");
 	elements[12] = new Service("Cellphone Service", 'f');
 	elements[28] = new Service("Internet Service", 'f');
-	elements[20] = new FreeParking();
+	elements[20] = new FreeParking("Free Parking");
 	elements[10] = new Jail();
 
 	fp = fopen(CITIES_LINK, "r");
@@ -55,8 +59,8 @@ void Board::readCities()
 		string[j] = '\0';int code; 
 		fscanf(fp, "%d", &code);
 		City* city = new City(string, (char)code);
-		fscanf(fp, "%d%f%f%f%f%f%f%f\n", &index, city->getPrices(), city->getPrices() + 1, city->getPrices() + 2, 
-					city->getPrices()+ 3, city->getPrices() + 4, city->getPrices() + 5, &purchase);
+		fscanf(fp, "%d%f%f%f%f%f%f%f\n", &index, city->getPrices(0), city->getPrices(1), city->getPrices(2), 
+					city->getPrices(3), city->getPrices(4), city->getPrices(5), &purchase);
 
 		city->setPurchasePrice(purchase);
 		city->setRent(*(city->getPrices()));

@@ -1,3 +1,7 @@
+/**
+* This class provides a prototype for both Chance
+* and Community Chest spaces on the Monopoly board
+**/
 #ifndef RandomSpace_H
 #define RandomSpace_H
 #include <stdlib.h>

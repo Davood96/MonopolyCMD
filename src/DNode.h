@@ -1,3 +1,6 @@
+/**
+* This file provides a template for a doublely-linked list node
+**/
 #ifndef DNode_H
 #define DNode_H
 template <class T> class DNode

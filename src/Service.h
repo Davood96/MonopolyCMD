@@ -1,3 +1,6 @@
+/**
+* This class provides a template for a Service space
+**/
 #include <stdlib.h>
 #include <stdio.h>
 #include "Property.h"

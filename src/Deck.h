@@ -1,3 +1,7 @@
+/**
+* This file provides the template for a deck of cards
+*
+**/
 #ifndef Deck_H
 #define Deck_H
 #include <stdlib.h>
@@ -26,12 +30,20 @@ template <typename T> class Deck : public DList<T>
 
 		~Deck<T>(){}
 
-
+		/**
+		* Generates a random number between 1 and (CARDS - 1)
+		* @return - the random number
+		**/
 		int generate()
 		{
 			return (*distribution)(*generator);
 		}
-
+		/**
+		* Draws a card from the deck. Depending on the type of deck,
+		* different actions are taken afterwards
+		* @param plyr - the player who has drawn the card
+		* @return - the player's current position on the board
+		**/
 		virtual int drawCard(Player* plyr) = 0;
 
 };

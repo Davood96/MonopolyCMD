@@ -1,4 +1,6 @@
-
+/**
+* This file provides a template for a doublely-linked list
+**/
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>

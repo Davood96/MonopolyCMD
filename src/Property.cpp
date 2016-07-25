@@ -1,3 +1,7 @@
+/**
+* This file contains the implementation of the following classes:
+* - Property
+**/
 #include "Property.h"
 #include "Player.h"
 #include <stdio.h>
@@ -13,18 +17,17 @@ int Property::execute(Player* plyr)
 	printColorGroup();
 	printRentInfo();
 	printf("You have this much: %s\n",getFormat(plyr->getCash()));
-	isOwned(plyr) ? payRent(plyr, plyr->getRoll()) : purchase(plyr);
+
+	if(isOwned() && owner != player)
+		payRent(plyr, plyr->getRoll());
+	else if(owner == NULL)
+		purchase(plyr);
+
 	return plyr->getPosition();
 }
 
 void Property::purchase(Player* plyr)
 {	
-	if(owner == NULL)
-		printPurchaseInfo();
-
-	if(owner == plyr)
-		return;
-
 	!plyr->getTurn() ? printf("Buy after passing round once\n\n") : purchaseDialog(plyr);  
 }
 

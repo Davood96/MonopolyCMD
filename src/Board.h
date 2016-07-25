@@ -1,3 +1,9 @@
+/**
+* This class provides the prototype
+* for the Monopoly board
+*
+**/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "LandingSpace.h"
@@ -40,11 +46,19 @@ class Board
 
 
 		~Board(){};
-
+		
+		/**
+		* Instructs a LandingSpace's execute() routine to run
+		* when a player lands
+		* @param plyr - The player who has just rolled
+		* @param index - the player's position on the board
+		*
+		**/
 		void executeOptions(Player* plyr, int index)
 		{
 			int pos = elements[index]->execute(plyr);
-			if(pos - index != 0)
+			//This occurs in the event an AdvanceCard is drawn in the line above
+			if(pos - index)
 				elements[pos]->execute(plyr);
 			
 		}

@@ -1,3 +1,8 @@
+/**
+* This file contains the implementation of the following classes:
+* - Player
+* - Group
+**/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

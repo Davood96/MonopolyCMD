@@ -1,3 +1,7 @@
+/**
+* This file contains the implementation of the following classes:
+* - Jail
+**/
 #include <stdio.h>
 #include "Jail.h"
 #include "Player.h"

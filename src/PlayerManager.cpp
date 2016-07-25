@@ -1,3 +1,7 @@
+/**
+* This file contains the implementation of the following classes:
+* - PlayerManager
+**/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
