@@ -4,16 +4,17 @@
 **/
 #include <stdio.h>
 #include <stdlib.h>
-#include "Board.h"
-#include "RandomCardImp.h"
-#include "PropertyChildren.h"
-#include "CardTypes.h"
-#include "Names.h"
+#include "../Headers/Board.h"
+#include "../Headers/RandomCardImp.h"
+#include "../Headers/PropertyChildren.h"
+#include "../Headers/CardTypes.h"
+#include "../Headers/Names.h"
 
 void Board::shuffleDecks()
 {
 	chanceDeck->shuffle();
 	communityDeck->shuffle();
+	//meow
 }
 
 void Board::createDecks()
@@ -46,7 +47,10 @@ void Board::readCities()
 	fp = fopen(CITIES_LINK, "r");
 
 	if(fp == NULL)
+	{
+		printf("not found\n");
 		exit(1);
+	}
 
 	int i = 0;int index; float purchase; 
 
@@ -73,6 +77,13 @@ void Board::readCities()
 void Board::readAirports()
 {
 	fp = fopen(AIRPORT_LINK, "r");
+
+	if(fp == NULL)
+	{
+		printf("not found\n");
+		exit(1);
+	}
+
 	int i = 0;int index;
 	for(i; i < 4; i++)
 	{
@@ -94,8 +105,13 @@ void Board::readAirports()
 void Board::readChance()
 {
 	fp = fopen(CHANCE_LINK, "r");
+
 	if(fp == NULL)
+	{
+		printf("not found\n");
 		exit(1);
+	}
+
 	int i = 0;int index;
 	for(i; i < 3; i++)
 	{
@@ -119,8 +135,13 @@ void Board::readChance()
 void Board::readCommunityChest()
 {
 	fp = fopen(COMMUNITY_LINK, "r");
+
 	if(fp == NULL)
+	{
+		printf("not found\n");
 		exit(1);
+	}
+
 	int i = 0;int index;
 	for(i; i < 3; i++)
 	{

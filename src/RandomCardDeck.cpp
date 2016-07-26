@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "RandomCardDeck.h"
-#include "RandomCard.h"
-#include "Player.h"
-#include "CardTypes.h"
+#include "../Headers/RandomCardDeck.h"
+#include "../Headers/RandomCard.h"
+#include "../Headers/Player.h"
+#include "../Headers/CardTypes.h"
 
 void RandomCardDeck::shuffle()
 {

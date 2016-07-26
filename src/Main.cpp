@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Player.h"
-#include "PlayerManager.h"
-#include "Board.h"
+#include "../Headers/Player.h"
+#include "../Headers/PlayerManager.h"
+#include "../Headers/Board.h"
 
 void main()
 {

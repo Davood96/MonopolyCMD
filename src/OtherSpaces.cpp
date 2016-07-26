@@ -3,8 +3,8 @@
 * - Jail
 **/
 #include <stdio.h>
-#include "Jail.h"
-#include "Player.h"
+#include "../Headers/Jail.h"
+#include "../Headers/Player.h"
 
 int Jail::execute(Player* plyr)
 {

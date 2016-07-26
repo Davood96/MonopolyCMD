@@ -2,29 +2,33 @@
 
 #OBJECTS macro is the list of objects
 #used in this program
-OBJECTS = Main.obj Board.obj RandomCardDeck.obj Player.obj PlayerManager.obj Property.obj OtherSpaces.obj
+OBJ_DIR = ../Objects/
+EXE_DIR = ../
+HEAD_DIR = ../Headers/
+OBJECTS = $(OBJ_DIR)*
+MOVE = move
 
 
-Main.exe: $(OBJECTS)
-	link.exe /out:$@ $**
+$(EXE_DIR)Main.exe: $(OBJECTS)
+	link.exe /out:$@ $(OBJ_DIR)*
 
-Main.obj: Main.cpp Board.h Player.h PlayerManager.h
-	cl -c Main.cpp 
+$(OBJ_DIR)Main.obj: Main.cpp $(HEAD_DIR)Board.h $(HEAD_DIR)Player.h $(HEAD_DIR)PlayerManager.h
+	cl -c Main.cpp /Fo$(OBJ_DIR)
 
-Board.obj: Board.cpp Board.h RandomCardImp.h PropertyChildren.h CardTypes.h
-	cl -c Board.cpp
+$(OBJ_DIR)Board.obj: Board.cpp $(HEAD_DIR)Board.h $(HEAD_DIR)RandomCardImp.h $(HEAD_DIR)PropertyChildren.h $(HEAD_DIR)CardTypes.h
+	cl -c Board.cpp /Fo$(OBJ_DIR)
 
-RandomCardDeck.obj: RandomCardDeck.cpp RandomCardDeck.h RandomCard.h Player.h CardTypes.h
-	cl -c RandomCardDeck.cpp
+$(OBJ_DIR)RandomCardDeck.obj: RandomCardDeck.cpp $(HEAD_DIR)RandomCardDeck.h $(HEAD_DIR)RandomCard.h $(HEAD_DIR)Player.h $(HEAD_DIR)CardTypes.h
+	cl -c  RandomCardDeck.cpp /Fo$(OBJ_DIR)
 
-Player.obj: Player.cpp Player.h Die.h Group.h Property.h
-	cl -c Player.cpp
+$(OBJ_DIR)Player.obj: Player.cpp $(HEAD_DIR)Player.h $(HEAD_DIR)Die.h $(HEAD_DIR)Group.h $(HEAD_DIR)Property.h
+	cl -c Player.cpp /Fo$(OBJ_DIR)
 
-PlayerManager.obj: PlayerManager.cpp PlayerManager.h Player.h Die.h Board.h
-	cl -c PlayerManager.cpp
+$(OBJ_DIR)PlayerManager.obj: PlayerManager.cpp $(HEAD_DIR)PlayerManager.h $(HEAD_DIR)Player.h $(HEAD_DIR)Die.h $(HEAD_DIR)Board.h
+	cl -c PlayerManager.cpp /Fo$(OBJ_DIR)
 
-Property.obj: Property.cpp Property.h Player.h
-	cl -c Property.cpp
+$(OBJ_DIR)Property.obj: Property.cpp $(HEAD_DIR)Property.h $(HEAD_DIR)Player.h
+	cl -c Property.cpp /Fo$(OBJ_DIR)
 
-OtherSpaces.obj: OtherSpaces.cpp Jail.h Player.h
-	cl -c OtherSpaces.cpp  
+$(OBJ_DIR)OtherSpaces.obj: OtherSpaces.cpp $(HEAD_DIR)Jail.h $(HEAD_DIR)Player.h
+	cl -c OtherSpaces.cpp /Fo$(OBJ_DIR)  

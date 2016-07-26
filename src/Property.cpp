@@ -2,8 +2,8 @@
 * This file contains the implementation of the following classes:
 * - Property
 **/
-#include "Property.h"
-#include "Player.h"
+#include "../Headers/Property.h"
+#include "../Headers/Player.h"
 #include <stdio.h>
 
 

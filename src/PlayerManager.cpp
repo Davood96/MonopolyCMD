@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Die.h"
-#include "Board.h"
-#include "PlayerManager.h"
-#include "Player.h"
+#include "../Headers/Die.h"
+#include "../Headers/Board.h"
+#include "../Headers/PlayerManager.h"
+#include "../Headers/Player.h"
 
 Player** PlayerManager::searchPlayer()
 {

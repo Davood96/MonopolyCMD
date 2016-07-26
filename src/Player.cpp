@@ -6,10 +6,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Player.h"
-#include "Die.h"
-#include "Property.h"
-#include "Group.h"
+#include "../Headers/Player.h"
+#include "../Headers/Die.h"
+#include "../Headers/Property.h"
+#include "../Headers/Group.h"
 
 
 void Player::payOwed(Player* owner, float amount)
@@ -90,7 +90,6 @@ void Group::add(Property* ptr)
 
 int Player::move(Die* ptr)
 {
-	printf("MAKe\n");
 	int roll_1 = ptr->roll();
 	int roll_2 = ptr->roll();
 	int snake_eyes = roll_1 == roll_2;
