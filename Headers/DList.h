@@ -1,6 +1,4 @@
-/**
-* This file provides a template for a doublely-linked list
-**/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -21,6 +19,7 @@ template <class T> class DList
 
 		void insertAtTail(DNode<T>* new_node);
 		void insertAtHead(DNode<T>* new_node);
+		void reverseList();
 		DNode<T>* removeAtHead();
 		void printList();
 		DNode<T>* swap(DNode<T>* first, DNode<T>* second);
@@ -39,6 +38,7 @@ template <class T> DList<T>::DList()
 	head->setPrev(NULL);
 	tail->setNext(NULL);
 	tail->setPrev(head);
+	size = 0;
 }
 
 template <class T> DNode<T>* DList<T>::getFirst()
@@ -51,21 +51,28 @@ template <class T> DNode<T>* DList<T>::getLast()
 	return tail->getPrev();
 }
 
-template <class T> DNode<T>* DList<T>::swap(DNode<T>* first,DNode<T>* second)
+template <class T> DNode<T>* DList<T>::swap(DNode<T>* front,DNode<T>* end)
 {
-	DNode<T>* left = first->getPrev();
-	DNode<T>* right = second->getNext();
+	DNode<T>* leftFront = front->getPrev(); 
+	DNode<T>* tmp = front->getNext();
+	DNode<T>* rightFront = tmp != end ? tmp : front; // For swaps next to each other
+	tmp = end->getPrev();
+	DNode<T>* leftEnd = tmp != front ? tmp : end; // For swaps next to each other
+	DNode<T>* rightEnd = end->getNext(); 
 
-	left->setNext(second);
-	second->setPrev(left);
+	leftFront->setNext(end); 
+	end->setPrev(leftFront);
 	
-	right->setPrev(first);
-	first->setNext(right);
+	rightEnd->setPrev(front);
+	front->setNext(rightEnd);
 
-	second->setNext(first);
-	first->setPrev(second);
+	end->setNext(rightFront);
+	rightFront->setPrev(end);
 
-	return first;
+	front->setPrev(leftEnd);
+	leftEnd->setNext(front);
+
+	return front;
 }
 
 template <class T> void DList<T>::insertAtTail(DNode<T>* new_node)
@@ -109,3 +116,24 @@ template <class T> void DList<T>::printList()
 	printf("\n");
 
 }
+
+template <class T> void DList<T>::reverseList()
+{
+	DNode<T>* front = head->getNext();
+	DNode<T>* end = tail->getPrev();
+	DNode<T>* nextFront = front->getNext();
+	DNode<T>* nextEnd = end->getPrev();
+	int swaps = size / 2;
+	int i = 0;
+	for(i; i < swaps; i++)
+	{
+		swap(front, end);
+		front = nextFront;
+		end = nextEnd;
+		nextFront = front->getNext();
+		nextEnd = end->getPrev();	
+	}
+}
+
+
+

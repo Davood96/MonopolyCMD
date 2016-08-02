@@ -18,7 +18,7 @@ $(OBJ_DIR)Main.obj: Main.cpp $(HEAD_DIR)Board.h $(HEAD_DIR)Player.h $(HEAD_DIR)P
 $(OBJ_DIR)Board.obj: Board.cpp $(HEAD_DIR)Board.h $(HEAD_DIR)RandomCardImp.h $(HEAD_DIR)PropertyChildren.h $(HEAD_DIR)CardTypes.h
 	cl -c Board.cpp /Fo$(OBJ_DIR)
 
-$(OBJ_DIR)RandomCardDeck.obj: RandomCardDeck.cpp $(HEAD_DIR)RandomCardDeck.h $(HEAD_DIR)RandomCard.h $(HEAD_DIR)Player.h $(HEAD_DIR)CardTypes.h
+$(OBJ_DIR)RandomCardDeck.obj: RandomCardDeck.cpp $(HEAD_DIR)RandomCardDeck.h $(HEAD_DIR)RandomCard.h $(HEAD_DIR)Player.h $(HEAD_DIR)CardTypes.h $(HEAD_DIR)DList.h
 	cl -c  RandomCardDeck.cpp /Fo$(OBJ_DIR)
 
 $(OBJ_DIR)Player.obj: Player.cpp $(HEAD_DIR)Player.h $(HEAD_DIR)Die.h $(HEAD_DIR)Group.h $(HEAD_DIR)Property.h
