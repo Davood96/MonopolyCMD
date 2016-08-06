@@ -30,5 +30,5 @@ $(OBJ_DIR)PlayerManager.obj: PlayerManager.cpp $(HEAD_DIR)PlayerManager.h $(HEAD
 $(OBJ_DIR)Property.obj: Property.cpp $(HEAD_DIR)Property.h $(HEAD_DIR)Player.h
 	cl -c Property.cpp /Fo$(OBJ_DIR)
 
-$(OBJ_DIR)OtherSpaces.obj: OtherSpaces.cpp $(HEAD_DIR)Jail.h $(HEAD_DIR)Player.h
+$(OBJ_DIR)OtherSpaces.obj: OtherSpaces.cpp $(HEAD_DIR)Jail.h $(HEAD_DIR)Player.h $(HEAD_DIR)TaxSpace.h
 	cl -c OtherSpaces.cpp /Fo$(OBJ_DIR)  

@@ -4,3 +4,4 @@
 #include "Service.h"
 #include "FreeParking.h"
 #include "Jail.h"
+#include "TaxSpace.h"

@@ -39,7 +39,7 @@ class Player
 		Player(char* str)
 		{
 			cash = 15000000;
-			jailState = false;
+			jailState = 0;
 			position = 0;
 			turn = 0;
 			prevTurn = 0;

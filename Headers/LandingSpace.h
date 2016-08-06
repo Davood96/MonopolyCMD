@@ -5,13 +5,14 @@
 #include <stdio.h>
 #ifndef LandingSpace_H
 #define LandingSpace_H
-
+#define MIN_VALUE 0.00000001
 class Player;
 class LandingSpace
 {
 
 	private:
 		char* name;
+		char format[6];
 		
 	public:
 		LandingSpace(char* string)
@@ -37,6 +38,22 @@ class LandingSpace
 		void printLanded()
 		{
 			printf("You landed on %s\n", getName());
+		}
+
+		/**
+		* Returns the String representation of a monetary number
+		* @param amount - the monetary number
+		* @return - its String representation
+		**/
+		char* getFormat(float amount)
+		{
+			char symbol;
+			int thousand_number = amount / 1000000 < 1;
+			float result = thousand_number ? amount / 1000 : amount / 1000000;
+			symbol = thousand_number ? 'K' : 'M';
+			int isInt = result - (int)(result)   < MIN_VALUE;
+			!thousand_number && !isInt ? sprintf(format, "$%0.3f%c", result, symbol) : sprintf(format, "$%.0f%c", result, symbol);
+			return format; 
 		}
 
 		/**

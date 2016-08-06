@@ -6,8 +6,8 @@
 #define Property_H
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 #include "LandingSpace.h"
-#define MIN_VALUE 0.00000001
 #define YES 'Y'
 #define NO 'N'
 #define GROUPS 10
@@ -19,7 +19,6 @@ class Property : public LandingSpace
 		float rent;
 		float purchase_price;
 		Player* owner;
-		char format[6];
 		int morgated;
 	
 		//Must be a char. Have no idea why
@@ -35,10 +34,9 @@ class Property : public LandingSpace
 		{ 
 			owner = NULL; 
 			groupCode = code;
-			
 		}
 
-		Property() : LandingSpace(){}
+		Property() : LandingSpace(){owner = NULL;}
 		~Property(){printf("Free memory\n");}
 
 		/**
@@ -80,21 +78,7 @@ class Property : public LandingSpace
 		{
 			owner = ptr;
 		}
-		/**
-		* Returns the String representation of a monetary number
-		* @param amount - the monetary number
-		* @return - its String representation
-		**/
-		char* getFormat(float amount)
-		{
-			char symbol;
-			int thousand_number = amount / 1000000 < 1;
-			float result = thousand_number ? amount / 1000 : amount / 1000000;
-			symbol = thousand_number ? 'K' : 'M';
-			int isInt = result - (int)(result)   < MIN_VALUE;
-			!thousand_number && !isInt ? sprintf(format, "$%0.3f%c", result, symbol) : sprintf(format, "$%.0f%c", result, symbol);
-			return format; 
-		}
+		
 
 		char getCode()
 		{

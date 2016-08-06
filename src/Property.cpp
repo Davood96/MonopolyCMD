@@ -5,6 +5,7 @@
 #include "../Headers/Property.h"
 #include "../Headers/Player.h"
 #include <stdio.h>
+#include <iostream>
 
 
 const char* Property::group_labels[GROUPS] = {"BROWN", "LIGHT BLUE", "PINK", 
@@ -17,7 +18,7 @@ int Property::execute(Player* plyr)
 	printColorGroup();
 	printRentInfo();
 	printf("You have this much: %s\n",getFormat(plyr->getCash()));
-
+	
 	if(isOwned() && owner != plyr)
 		payRent(plyr, plyr->getRoll());
 	else if(owner == NULL)

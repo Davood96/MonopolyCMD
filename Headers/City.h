@@ -14,7 +14,7 @@ class City : public Property
 		int houses;
 		//The various rent rates
 		float* rent_prices;
-		char format[6];
+		
 		
 	public:
 		City(char* string, char code, float* arr) : Property(string, code)

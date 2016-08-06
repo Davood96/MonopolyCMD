@@ -3,6 +3,7 @@
 * - Board
 **/
 #include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 #include "../Headers/Board.h"
 #include "../Headers/RandomCardImp.h"
@@ -39,10 +40,12 @@ void Board::assignRandomCardPositions()
 void Board::readCities()
 {
 	elements[0] = new GO("GO");
-	elements[12] = new Service("Cellphone Service", 'f');
-	elements[28] = new Service("Internet Service", 'f');
-	elements[20] = new FreeParking("Free Parking");
+	elements[4] = new IncomeTax("Income Tax");
 	elements[10] = new Jail();
+	elements[12] = new Service("Cellphone Service", 'f');
+	elements[20] = new FreeParking("Free Parking");
+	elements[28] = new Service("Internet Service", 'f');
+	elements[38] = new LuxuryTax("Luxury Tax");	
 
 	fp = fopen(CITIES_LINK, "r");
 
@@ -67,6 +70,7 @@ void Board::readCities()
 					tmp + 3, tmp + 4, tmp + 5, &purchase);
 
 		City* city = new City(string, (char)code, tmp);
+		//std::cout << city->isOwned();
 		city->setPurchasePrice(purchase);
 		city->setRent(tmp[0]);
 		elements[index] = city; 

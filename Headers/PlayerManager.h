@@ -96,6 +96,7 @@ class PlayerManager
 			players = (Player**) malloc(amount * sizeof(Player*));
 			board = ptr;
 			index = 0;
+			
 			size = amount;
 			stringMap[std::string("")] = 1;
 			stringMap[std::string("B")] = 2;
@@ -107,7 +108,7 @@ class PlayerManager
 		/**
 		* Ends the current player's turn
 		**/
-		void endTurn();
+		void endTurn(int skip);
 		/**
 		* Begins the current player's turn
 		**/
@@ -133,6 +134,8 @@ class PlayerManager
 			return (int) (c - '0');			
 
 		}
+
+		int getJailState();
 		/**
 		* Carries out the terms specified in the deal
 		**/
@@ -150,6 +153,7 @@ class PlayerManager
 		{
 			players[index] = plyr;
 			increment(1);
+			currPlayer = players[index];
 		}
 		/**
 		* Returns whether the game is running or not

@@ -27,6 +27,11 @@ Player** PlayerManager::searchPlayer()
 
 }
 
+int PlayerManager::getJailState()
+{
+	return currPlayer->getJail();
+}
+
 void PlayerManager::scanListed(int** arr, int size)
 {
 	int index = 0;
@@ -109,11 +114,16 @@ void PlayerManager::build()
 	printf("%s would like to build\n", currPlayer->getName());
 }
 
-void PlayerManager::endTurn()
+void PlayerManager::endTurn(int skip)
 {
-	printf("Options:\nPress Enter to end turn\tPress B to buy houses\tPress D to make a deal\n");
-	int val =  readAction();
-	runCase(val);
+	printf("%d", skip);
+	if(!skip)
+	{
+		printf("Options:\nPress Enter to end turn\tPress B to buy houses\tPress D to make a deal\n");
+		int val =  readAction();
+		runCase(val);
+	}
+
 	increment(offset);
 	printf("%d ", offset);
 }

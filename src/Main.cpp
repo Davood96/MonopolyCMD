@@ -17,9 +17,10 @@ void main()
 	
 	while(manager.getRunning())
 	{
+		int prevState = manager.getJailState();
 		manager.startTurn();
 		//board->executeOptions(currPlayer, currPlayer->getPosition());
-		manager.endTurn();
+		manager.endTurn(prevState < manager.getJailState());
 	}
 
 
